@@ -967,7 +967,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>Codice_Fiscale</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename>CodiceFiscale</rename>
         <length>-2</length>
         <precision>-2</precision>
