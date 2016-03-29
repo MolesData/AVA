@@ -102,7 +102,7 @@
   <order>
   <hop> <from>Preleva Residenza</from><to>Proietta Residenza</to><enabled>Y</enabled> </hop>
   <hop> <from>Preleva Diploma</from><to>Proietta Diploma</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read Spedizione 7</from><to>Preleva Diploma</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read Spedizione 1</from><to>Preleva Diploma</to><enabled>Y</enabled> </hop>
   <hop> <from>Titolo di Studi Diploma</from><to>Preleva Diploma</to><enabled>Y</enabled> </hop>
   <hop> <from>Sesso</from><to>Preleva Sesso</to><enabled>Y</enabled> </hop>
   <hop> <from>Proietta Diploma</from><to>Preleva Sesso</to><enabled>Y</enabled> </hop>
@@ -281,6 +281,35 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>624</xloc>
       <yloc>384</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Genera KStudente</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>KStudente</valuename>
+      <use_database>N</use_database>
+      <connection>postgresql</connection>
+      <schema>ava</schema>
+      <seqname>ktipouscita</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1488</xloc>
+      <yloc>212</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1832,7 +1861,7 @@
     </step>
 
   <step>
-    <name>Read Spedizione 7</name>
+    <name>Read Spedizione 1</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2443,7 +2472,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>80</xloc>
+      <xloc>32</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
@@ -2697,7 +2726,7 @@
     <schema>AVA</schema>
     <table>Studente</table>
     <commit>1000</commit>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>N</specify_fields>
@@ -3493,35 +3522,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1167</xloc>
       <yloc>381</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Genera KStudente</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>KStudente</valuename>
-      <use_database>N</use_database>
-      <connection>postgresql</connection>
-      <schema>ava</schema>
-      <seqname>ktipouscita</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1488</xloc>
-      <yloc>212</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
