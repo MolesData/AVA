@@ -70,20 +70,20 @@
   <created_date>2016&#x2f;03&#x2f;26 10&#x3a;27&#x3a;49.028</created_date>
   <modified_user>-</modified_user>
   <modified_date>2016&#x2f;03&#x2f;26 10&#x3a;27&#x3a;49.028</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
     <name>postgresql</name>
-    <server>openspace.ddns.net</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>DWH</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <username>Daniel</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -124,8 +124,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>496</xloc>
-      <yloc>144</yloc>
+      <xloc>480</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -153,44 +153,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup Descrizione</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>Ingresso</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>N</name>
-        <field>ID_TIPO_INGRESSO</field>
-      </key>
-      <value>
-        <name>DESCRIZIONE</name>
-        <rename>Tipo Ingresso</rename>
-        <default/>
-        <type>None</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>144</yloc>
+      <xloc>656</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -324,6 +288,42 @@
     </step>
 
   <step>
+    <name>Lookup Descrizione</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>Ingresso</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>Tipo_ingresso</name>
+        <field>ID_TIPO_INGRESSO</field>
+      </key>
+      <value>
+        <name>DESCRIZIONE</name>
+        <rename>Tipo Ingresso</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>320</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Read Spedizione 1</name>
     <type>TextFileInput</type>
     <description/>
@@ -383,7 +383,7 @@
     </filters>
     <fields>
       <field>
-        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+        <name>Codice_fiscale_evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -398,7 +398,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>AC</name>
+        <name>Evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -413,7 +413,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>24102012</name>
+        <name>Data_Evento</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -428,7 +428,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+        <name>Codice_Fiscale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -443,7 +443,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>F</name>
+        <name>Sesso</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -458,7 +458,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>58013</name>
+        <name>Comune_nascita</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -473,7 +473,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>7081992</name>
+        <name>Data_nascita</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -488,7 +488,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Stato_nascita</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -503,7 +503,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>24102012</name>
+        <name>Data_prima_immatricolazione</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -518,7 +518,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>2012</name>
+        <name>Anno_prima_immatricolazione</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -533,7 +533,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Cittadinanza</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -548,7 +548,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Stato_di_residenza</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -563,7 +563,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>58091</name>
+        <name>Comune_residenza</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -578,7 +578,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Tipo_ingresso</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -593,7 +593,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>137649</name>
+        <name>Chiave_corso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -608,7 +608,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>998</name>
+        <name>Esito_test_ingresso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -623,7 +623,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0,00</name>
+        <name>CFU_validi_per_il_corso</name>
         <type>Number</type>
         <format>&#x23;.&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -638,7 +638,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0,00</name>
+        <name>Debiti_accertati</name>
         <type>Number</type>
         <format>&#x23;.&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -653,7 +653,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>1</name>
+        <name>Anno_iscrizione_corso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -668,7 +668,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>9</name>
+        <name>Lavoratore</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -683,7 +683,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>60</name>
+        <name>Impegno</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -698,7 +698,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>9</name>
+        <name>Piano_studi_individuale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -713,7 +713,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>A</name>
+        <name>Borsa_di_studio</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -728,7 +728,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Esenzione</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -743,7 +743,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Esonero_totale_o_parziale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -758,7 +758,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0</name>
+        <name>Contributi_dovuti</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -773,7 +773,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0</name>
+        <name>Contributi_pagati</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -788,7 +788,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>98</name>
+        <name>Interventi_di_supporto</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -803,7 +803,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field29</name>
+        <name>Descrizione_interventi_supporto</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -818,7 +818,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field30</name>
+        <name>Titolo_di_studio_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -833,7 +833,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field31</name>
+        <name>Istituto_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -848,7 +848,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field32</name>
+        <name>Anno_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -863,7 +863,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field33</name>
+        <name>Votazione_diploma</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -878,7 +878,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field34</name>
+        <name>Nazione_diploma</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -893,7 +893,22 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field35</name>
+        <name>Vecchio_diploma</name>
+        <type>String</type>
+        <format/>
+        <currency>&#x20ac;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>0</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vecchio_Evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>

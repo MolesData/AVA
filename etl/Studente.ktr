@@ -77,13 +77,13 @@
   </notepads>
   <connection>
     <name>postgresql</name>
-    <server>openspace.ddns.net</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>DWH</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <username>Daniel</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -100,15 +100,15 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Preleva Residenza</from><to>Proietta Residenza</to><enabled>Y</enabled> </hop>
   <hop> <from>Preleva Diploma</from><to>Proietta Diploma</to><enabled>Y</enabled> </hop>
+  <hop> <from>Proietta Diploma</from><to>Preleva Sesso</to><enabled>Y</enabled> </hop>
+  <hop> <from>Preleva Sesso</from><to>Proietta Sex</to><enabled>Y</enabled> </hop>
+  <hop> <from>Proietta Sex</from><to>Preleva Residenza</to><enabled>Y</enabled> </hop>
+  <hop> <from>Preleva Residenza</from><to>Proietta Residenza</to><enabled>Y</enabled> </hop>
   <hop> <from>Read Spedizione 1</from><to>Preleva Diploma</to><enabled>Y</enabled> </hop>
   <hop> <from>Titolo di Studi Diploma</from><to>Preleva Diploma</to><enabled>Y</enabled> </hop>
   <hop> <from>Sesso</from><to>Preleva Sesso</to><enabled>Y</enabled> </hop>
-  <hop> <from>Proietta Diploma</from><to>Preleva Sesso</to><enabled>Y</enabled> </hop>
-  <hop> <from>Preleva Sesso</from><to>Proietta Sex</to><enabled>Y</enabled> </hop>
   <hop> <from>Residenza</from><to>Preleva Residenza</to><enabled>Y</enabled> </hop>
-  <hop> <from>Proietta Sex</from><to>Preleva Residenza</to><enabled>Y</enabled> </hop>
   <hop> <from>Cittadinanza</from><to>Preleva Cittadinanza</to><enabled>Y</enabled> </hop>
   <hop> <from>Proietta Residenza</from><to>Preleva Cittadinanza</to><enabled>Y</enabled> </hop>
   <hop> <from>Preleva Cittadinanza</from><to>Proietta Cittadinanza</to><enabled>Y</enabled> </hop>
@@ -308,8 +308,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1488</xloc>
-      <yloc>212</yloc>
+      <xloc>1440</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -368,7 +368,7 @@
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>Field30</name>
+        <name>Titolo_di_studio_diploma</name>
         <field>ID_DIPLOMA</field>
       </key>
       <value>
@@ -404,7 +404,7 @@
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>Residenza</name>
+        <name>Comune_residenza</name>
         <field>COD_ISTAT</field>
       </key>
       <value>
@@ -488,7 +488,7 @@
     <integer_pair>Y</integer_pair>
     <lookup>
       <key>
-        <name>Stato di residenza</name>
+        <name>Stato_di_residenza</name>
         <field>ID_NAZIONALITA</field>
       </key>
       <value>
@@ -524,11 +524,7 @@
     <integer_pair>Y</integer_pair>
     <lookup>
       <key>
-        <name>Field31</name>
-        <field>ID_SCUOLA</field>
-      </key>
-      <key>
-        <name>Field32</name>
+        <name>Istituto_diploma</name>
         <field>ID_SCUOLA</field>
       </key>
       <value>
@@ -570,7 +566,7 @@
     <integer_pair>Y</integer_pair>
     <lookup>
       <key>
-        <name>Field34</name>
+        <name>Nazione_diploma</name>
         <field>ID_NAZIONALITA</field>
       </key>
       <value>
@@ -606,7 +602,7 @@
     <integer_pair>Y</integer_pair>
     <lookup>
       <key>
-        <name>Field33</name>
+        <name>Votazione_diploma</name>
         <field>ID_VOTO_DIPLOMA</field>
       </key>
       <value>
@@ -635,19 +631,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>AC</name>
+      </field>      <field>        <name>Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012</name>
+      </field>      <field>        <name>Data_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;_1</name>
+      </field>      <field>        <name>Codice_Fiscale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -655,31 +651,31 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>58013</name>
+      </field>      <field>        <name>Comune_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT</name>
+      </field>      <field>        <name>Stato_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012_1</name>
+      </field>      <field>        <name>Data_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Cittadinanza_1</name>
-        <rename>Cittadinanza</rename>
+      </field>      <field>        <name>Cittadinanza</name>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Stato di residenza</name>
+      </field>      <field>        <name>Stato_di_residenza</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -687,67 +683,67 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N</name>
+      </field>      <field>        <name>Tipo_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>137649</name>
+      </field>      <field>        <name>Chiave_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>998</name>
+      </field>      <field>        <name>Esito_test_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00</name>
+      </field>      <field>        <name>CFU_validi_per_il_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00_1</name>
+      </field>      <field>        <name>Debiti_accertati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>1</name>
+      </field>      <field>        <name>Anno_iscrizione_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9</name>
+      </field>      <field>        <name>Lavoratore</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>60</name>
+      </field>      <field>        <name>Impegno</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9_1</name>
+      </field>      <field>        <name>Piano_studi_individuale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>A</name>
+      </field>      <field>        <name>Borsa_di_studio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_1</name>
+      </field>      <field>        <name>Esenzione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_2</name>
+      </field>      <field>        <name>Esonero_totale_o_parziale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0</name>
+      </field>      <field>        <name>Contributi_dovuti</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0_1</name>
+      </field>      <field>        <name>Contributi_pagati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>98</name>
+      </field>      <field>        <name>Interventi_di_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field29</name>
+      </field>      <field>        <name>Descrizione_interventi_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -755,23 +751,27 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field31</name>
+      </field>      <field>        <name>Istituto_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field32</name>
+      </field>      <field>        <name>Anno_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field33</name>
+      </field>      <field>        <name>Votazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field34</name>
+      </field>      <field>        <name>Nazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field35</name>
+      </field>      <field>        <name>Vecchio_diploma</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Vecchio_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -803,119 +803,119 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>AC</name>
+      </field>      <field>        <name>Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012</name>
+      </field>      <field>        <name>Data_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;_1</name>
+      </field>      <field>        <name>Codice_Fiscale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>F</name>
-        <rename>sesso</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>58013</name>
+      </field>      <field>        <name>Sesso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Comune_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012_1</name>
+      </field>      <field>        <name>Stato_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Data_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT_1</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT_2</name>
+      </field>      <field>        <name>Cittadinanza</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>58091</name>
+      </field>      <field>        <name>Stato_di_residenza</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N</name>
+      </field>      <field>        <name>Comune_residenza</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>137649</name>
+      </field>      <field>        <name>Tipo_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>998</name>
+      </field>      <field>        <name>Chiave_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00</name>
+      </field>      <field>        <name>Esito_test_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00_1</name>
+      </field>      <field>        <name>CFU_validi_per_il_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>1</name>
+      </field>      <field>        <name>Debiti_accertati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9</name>
+      </field>      <field>        <name>Anno_iscrizione_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>60</name>
+      </field>      <field>        <name>Lavoratore</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9_1</name>
+      </field>      <field>        <name>Impegno</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>A</name>
+      </field>      <field>        <name>Piano_studi_individuale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_1</name>
+      </field>      <field>        <name>Borsa_di_studio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_2</name>
+      </field>      <field>        <name>Esenzione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0</name>
+      </field>      <field>        <name>Esonero_totale_o_parziale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0_1</name>
+      </field>      <field>        <name>Contributi_dovuti</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>98</name>
+      </field>      <field>        <name>Contributi_pagati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field29</name>
+      </field>      <field>        <name>Interventi_di_supporto</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Descrizione_interventi_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -923,31 +923,35 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field31</name>
+      </field>      <field>        <name>Istituto_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field32</name>
+      </field>      <field>        <name>Anno_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field33</name>
+      </field>      <field>        <name>Votazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field34</name>
+      </field>      <field>        <name>Nazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field35</name>
+      </field>      <field>        <name>Vecchio_diploma</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Vecchio_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>288</xloc>
-      <yloc>144</yloc>
+      <xloc>272</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -963,19 +967,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>CodiceFiscale</name>
-        <rename/>
+    <fields>      <field>        <name>Codice_Fiscale</name>
+        <rename>CodiceFiscale</rename>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>Sesso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename>DataNascita</rename>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename>Coorte</rename>
         <length>-2</length>
         <precision>-2</precision>
@@ -995,12 +999,8 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>TipoScuola</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>IstitutoScuola</name>
-        <rename/>
+      </field>      <field>        <name>Anno_diploma</name>
+        <rename>AnnoDiploma</rename>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>VotoDiploma</name>
@@ -1016,6 +1016,14 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>Regione</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>TipoScuola</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IstitutoScuola</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1039,19 +1047,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>CodiceFiscale</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>AC</name>
+      </field>      <field>        <name>Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012</name>
+      </field>      <field>        <name>Data_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;_1</name>
+      </field>      <field>        <name>Codice_Fiscale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1059,23 +1067,23 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>58013</name>
+      </field>      <field>        <name>Comune_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT</name>
+      </field>      <field>        <name>Stato_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012_1</name>
+      </field>      <field>        <name>Data_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1091,67 +1099,67 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N</name>
+      </field>      <field>        <name>Tipo_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>137649</name>
+      </field>      <field>        <name>Chiave_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>998</name>
+      </field>      <field>        <name>Esito_test_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00</name>
+      </field>      <field>        <name>CFU_validi_per_il_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00_1</name>
+      </field>      <field>        <name>Debiti_accertati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>1</name>
+      </field>      <field>        <name>Anno_iscrizione_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9</name>
+      </field>      <field>        <name>Lavoratore</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>60</name>
+      </field>      <field>        <name>Impegno</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9_1</name>
+      </field>      <field>        <name>Piano_studi_individuale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>A</name>
+      </field>      <field>        <name>Borsa_di_studio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_1</name>
+      </field>      <field>        <name>Esenzione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_2</name>
+      </field>      <field>        <name>Esonero_totale_o_parziale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0</name>
+      </field>      <field>        <name>Contributi_dovuti</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0_1</name>
+      </field>      <field>        <name>Contributi_pagati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>98</name>
+      </field>      <field>        <name>Interventi_di_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field29</name>
+      </field>      <field>        <name>Descrizione_interventi_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1159,11 +1167,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field31</name>
+      </field>      <field>        <name>Istituto_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field32</name>
+      </field>      <field>        <name>Anno_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1175,7 +1183,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field35</name>
+      </field>      <field>        <name>Vecchio_diploma</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Vecchio_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1207,19 +1219,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>AC</name>
+      </field>      <field>        <name>Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012</name>
+      </field>      <field>        <name>Data_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;_1</name>
+      </field>      <field>        <name>Codice_Fiscale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1227,99 +1239,99 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>58013</name>
+      </field>      <field>        <name>Comune_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT</name>
+      </field>      <field>        <name>Stato_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012_1</name>
+      </field>      <field>        <name>Data_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT_1</name>
-        <rename>Cittadinanza</rename>
+      </field>      <field>        <name>Cittadinanza</name>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT_2</name>
-        <rename>Stato di residenza</rename>
+      </field>      <field>        <name>Stato_di_residenza</name>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>Comune</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N</name>
+      </field>      <field>        <name>Tipo_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>137649</name>
+      </field>      <field>        <name>Chiave_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>998</name>
+      </field>      <field>        <name>Esito_test_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00</name>
+      </field>      <field>        <name>CFU_validi_per_il_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00_1</name>
+      </field>      <field>        <name>Debiti_accertati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>1</name>
+      </field>      <field>        <name>Anno_iscrizione_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9</name>
+      </field>      <field>        <name>Lavoratore</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>60</name>
+      </field>      <field>        <name>Impegno</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9_1</name>
+      </field>      <field>        <name>Piano_studi_individuale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>A</name>
+      </field>      <field>        <name>Borsa_di_studio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_1</name>
+      </field>      <field>        <name>Esenzione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_2</name>
+      </field>      <field>        <name>Esonero_totale_o_parziale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0</name>
+      </field>      <field>        <name>Contributi_dovuti</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0_1</name>
+      </field>      <field>        <name>Contributi_pagati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>98</name>
+      </field>      <field>        <name>Interventi_di_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field29</name>
+      </field>      <field>        <name>Descrizione_interventi_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1327,23 +1339,27 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field31</name>
+      </field>      <field>        <name>Istituto_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field32</name>
+      </field>      <field>        <name>Anno_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field33</name>
+      </field>      <field>        <name>Votazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field34</name>
+      </field>      <field>        <name>Nazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field35</name>
+      </field>      <field>        <name>Vecchio_diploma</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Vecchio_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1358,8 +1374,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>640</xloc>
-      <yloc>144</yloc>
+      <xloc>624</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1375,119 +1391,119 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>AC</name>
+      </field>      <field>        <name>Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012</name>
+      </field>      <field>        <name>Data_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;_1</name>
+      </field>      <field>        <name>Codice_Fiscale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Sesso_1</name>
-        <rename>Sesso</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>58013</name>
+      </field>      <field>        <name>Sesso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Comune_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012_1</name>
+      </field>      <field>        <name>Stato_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Data_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT_1</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT_2</name>
+      </field>      <field>        <name>Cittadinanza</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>58091</name>
-        <rename>Residenza</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>N</name>
+      </field>      <field>        <name>Stato_di_residenza</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>137649</name>
+      </field>      <field>        <name>Comune_residenza</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>998</name>
+      </field>      <field>        <name>Tipo_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00</name>
+      </field>      <field>        <name>Chiave_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00_1</name>
+      </field>      <field>        <name>Esito_test_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>1</name>
+      </field>      <field>        <name>CFU_validi_per_il_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9</name>
+      </field>      <field>        <name>Debiti_accertati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>60</name>
+      </field>      <field>        <name>Anno_iscrizione_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9_1</name>
+      </field>      <field>        <name>Lavoratore</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>A</name>
+      </field>      <field>        <name>Impegno</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_1</name>
+      </field>      <field>        <name>Piano_studi_individuale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_2</name>
+      </field>      <field>        <name>Borsa_di_studio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0</name>
+      </field>      <field>        <name>Esenzione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0_1</name>
+      </field>      <field>        <name>Esonero_totale_o_parziale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>98</name>
+      </field>      <field>        <name>Contributi_dovuti</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field29</name>
+      </field>      <field>        <name>Contributi_pagati</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Interventi_di_supporto</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Descrizione_interventi_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1495,23 +1511,27 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field31</name>
+      </field>      <field>        <name>Istituto_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field32</name>
+      </field>      <field>        <name>Anno_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field33</name>
+      </field>      <field>        <name>Votazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field34</name>
+      </field>      <field>        <name>Nazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field35</name>
+      </field>      <field>        <name>Vecchio_diploma</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Vecchio_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1519,7 +1539,7 @@
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>448</xloc>
-      <yloc>144</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1535,19 +1555,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
-        <rename>CodiceFiscale</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>AC</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012</name>
+      </field>      <field>        <name>Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;_1</name>
+      </field>      <field>        <name>Data_Evento</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Codice_Fiscale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1555,23 +1575,23 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>58013</name>
+      </field>      <field>        <name>Comune_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT</name>
+      </field>      <field>        <name>Stato_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012_1</name>
+      </field>      <field>        <name>Data_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1587,67 +1607,67 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N</name>
+      </field>      <field>        <name>Tipo_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>137649</name>
+      </field>      <field>        <name>Chiave_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>998</name>
+      </field>      <field>        <name>Esito_test_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00</name>
+      </field>      <field>        <name>CFU_validi_per_il_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00_1</name>
+      </field>      <field>        <name>Debiti_accertati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>1</name>
+      </field>      <field>        <name>Anno_iscrizione_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9</name>
+      </field>      <field>        <name>Lavoratore</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>60</name>
+      </field>      <field>        <name>Impegno</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9_1</name>
+      </field>      <field>        <name>Piano_studi_individuale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>A</name>
+      </field>      <field>        <name>Borsa_di_studio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_1</name>
+      </field>      <field>        <name>Esenzione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_2</name>
+      </field>      <field>        <name>Esonero_totale_o_parziale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0</name>
+      </field>      <field>        <name>Contributi_dovuti</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0_1</name>
+      </field>      <field>        <name>Contributi_pagati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>98</name>
+      </field>      <field>        <name>Interventi_di_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field29</name>
+      </field>      <field>        <name>Descrizione_interventi_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1655,23 +1675,27 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field31</name>
+      </field>      <field>        <name>Istituto_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field32</name>
+      </field>      <field>        <name>Anno_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field33</name>
+      </field>      <field>        <name>Votazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field34</name>
+      </field>      <field>        <name>Nazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field35</name>
+      </field>      <field>        <name>Vecchio_diploma</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Vecchio_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1703,19 +1727,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>CodiceFiscale</name>
+    <fields>      <field>        <name>Codice_fiscale_evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>AC</name>
+      </field>      <field>        <name>Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012</name>
+      </field>      <field>        <name>Data_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;_1</name>
+      </field>      <field>        <name>Codice_Fiscale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1723,23 +1747,23 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>58013</name>
+      </field>      <field>        <name>Comune_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>7081992</name>
+      </field>      <field>        <name>Data_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>IT</name>
+      </field>      <field>        <name>Stato_nascita</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>24102012_1</name>
+      </field>      <field>        <name>Data_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>2012</name>
+      </field>      <field>        <name>Anno_prima_immatricolazione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1755,67 +1779,67 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N</name>
+      </field>      <field>        <name>Tipo_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>137649</name>
+      </field>      <field>        <name>Chiave_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>998</name>
+      </field>      <field>        <name>Esito_test_ingresso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00</name>
+      </field>      <field>        <name>CFU_validi_per_il_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0,00_1</name>
+      </field>      <field>        <name>Debiti_accertati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>1</name>
+      </field>      <field>        <name>Anno_iscrizione_corso</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9</name>
+      </field>      <field>        <name>Lavoratore</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>60</name>
+      </field>      <field>        <name>Impegno</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>9_1</name>
+      </field>      <field>        <name>Piano_studi_individuale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>A</name>
+      </field>      <field>        <name>Borsa_di_studio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_1</name>
+      </field>      <field>        <name>Esenzione</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>N_2</name>
+      </field>      <field>        <name>Esonero_totale_o_parziale</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0</name>
+      </field>      <field>        <name>Contributi_dovuti</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>0_1</name>
+      </field>      <field>        <name>Contributi_pagati</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>98</name>
+      </field>      <field>        <name>Interventi_di_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field29</name>
+      </field>      <field>        <name>Descrizione_interventi_supporto</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1823,11 +1847,11 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field31</name>
+      </field>      <field>        <name>Istituto_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field32</name>
+      </field>      <field>        <name>Anno_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1835,11 +1859,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field34</name>
+      </field>      <field>        <name>Nazione_diploma</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>Field35</name>
+      </field>      <field>        <name>Vecchio_diploma</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Vecchio_Evento</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -1879,7 +1907,7 @@
     <enclosure>&#x22;</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar/>
-    <header>N</header>
+    <header>Y</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
     <nr_footerlines>1</nr_footerlines>
@@ -1920,7 +1948,7 @@
     </filters>
     <fields>
       <field>
-        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+        <name>Codice_fiscale_evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1935,7 +1963,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>AC</name>
+        <name>Evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1950,7 +1978,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>24102012</name>
+        <name>Data_Evento</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1965,7 +1993,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+        <name>Codice_Fiscale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1980,7 +2008,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>F</name>
+        <name>Sesso</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1995,7 +2023,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>58013</name>
+        <name>Comune_nascita</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2010,7 +2038,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>7081992</name>
+        <name>Data_nascita</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2025,7 +2053,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Stato_nascita</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2040,7 +2068,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>24102012</name>
+        <name>Data_prima_immatricolazione</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2055,7 +2083,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>2012</name>
+        <name>Anno_prima_immatricolazione</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2070,7 +2098,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Cittadinanza</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2085,7 +2113,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Stato_di_residenza</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2100,7 +2128,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>58091</name>
+        <name>Comune_residenza</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2115,7 +2143,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Tipo_ingresso</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2130,7 +2158,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>137649</name>
+        <name>Chiave_corso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2145,7 +2173,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>998</name>
+        <name>Esito_test_ingresso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2160,7 +2188,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0,00</name>
+        <name>CFU_validi_per_il_corso</name>
         <type>Number</type>
         <format>&#x23;.&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2175,7 +2203,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0,00</name>
+        <name>Debiti_accertati</name>
         <type>Number</type>
         <format>&#x23;.&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2190,7 +2218,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>1</name>
+        <name>Anno_iscrizione_corso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2205,7 +2233,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>9</name>
+        <name>Lavoratore</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2220,7 +2248,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>60</name>
+        <name>Impegno</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2235,7 +2263,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>9</name>
+        <name>Piano_studi_individuale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2250,7 +2278,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>A</name>
+        <name>Borsa_di_studio</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2265,7 +2293,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Esenzione</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2280,7 +2308,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Esonero_totale_o_parziale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2295,7 +2323,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0</name>
+        <name>Contributi_dovuti</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2310,7 +2338,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0</name>
+        <name>Contributi_pagati</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2325,7 +2353,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>98</name>
+        <name>Interventi_di_supporto</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2340,7 +2368,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field29</name>
+        <name>Descrizione_interventi_supporto</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2355,7 +2383,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field30</name>
+        <name>Titolo_di_studio_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2370,7 +2398,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field31</name>
+        <name>Istituto_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2385,7 +2413,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field32</name>
+        <name>Anno_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -2400,7 +2428,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field33</name>
+        <name>Votazione_diploma</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2415,7 +2443,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field34</name>
+        <name>Nazione_diploma</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -2430,7 +2458,22 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field35</name>
+        <name>Vecchio_diploma</name>
+        <type>String</type>
+        <format/>
+        <currency>&#x20ac;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>0</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vecchio_Evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>

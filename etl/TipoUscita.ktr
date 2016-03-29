@@ -77,13 +77,13 @@
   </notepads>
   <connection>
     <name>openspace.ddns.net</name>
-    <server>openspace.ddns.net</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>DWH</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <username>Daniel</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -177,7 +177,7 @@
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>3720</name>
+        <name>Motivazione_chiusura</name>
         <field>ID_MOTIVO</field>
       </key>
       <value>
@@ -357,7 +357,7 @@
     <rownum>N</rownum>
     <rownumByFile>N</rownumByFile>
     <rownum_field/>
-    <format>Unix</format>
+    <format>mixed</format>
     <encoding/>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
@@ -383,7 +383,7 @@
     </filters>
     <fields>
       <field>
-        <name>A7</name>
+        <name>Codice_fiscale_evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -398,7 +398,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>2012</name>
+        <name>Evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -413,7 +413,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>7</name>
+        <name>Data_Evento</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -428,7 +428,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>R</name>
+        <name>Chiave_corso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -443,7 +443,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>3720</name>
+        <name>Motivazione_chiusura</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -458,7 +458,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>7831</name>
+        <name>Anno_accademico_di_conseguimento_titolo</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -473,7 +473,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field7</name>
+        <name>Votazione_finale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -483,6 +483,21 @@
         <ifnull/>
         <position>-1</position>
         <length>4</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Tipologia_prova_finale</name>
+        <type>String</type>
+        <format/>
+        <currency>&#x20ac;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>

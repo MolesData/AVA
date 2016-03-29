@@ -77,13 +77,13 @@
   </notepads>
   <connection>
     <name>postgresql</name>
-    <server>openspace.ddns.net</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>DWH</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <username>Daniel</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -100,21 +100,19 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Codici corso</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup</from><to>Stream lookup 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dipartimento</from><to>Stream lookup 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup 2</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Stream lookup 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Codici corso</from><to>Stream lookup 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup 2 2</from><to>Stream lookup 2 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Codici corso</from><to>Stream lookup 2 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream lookup 2 2 2</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Read Spedizione 1</from><to>Select values 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2 2</from><to>Stream lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>TipoCds</from><to>Stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Genera KCDS</from><to>Save Cds</to><enabled>Y</enabled> </hop>
-  <hop> <from>Stream</from><to>Genera KCDS</to><enabled>Y</enabled> </hop>
+  <hop> <from>Codici corso</from><to>Codice Corso</to><enabled>Y</enabled> </hop>
+  <hop> <from>Codice Corso</from><to>Decodifica Codice corso</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dipartimento</from><to>Decodifica Codice corso</to><enabled>Y</enabled> </hop>
+  <hop> <from>Codici corso</from><to>Anno di validit&#xe0;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Anno di validit&#xe0;</from><to>Data fine Validit&#xe0;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Codici corso</from><to>Data fine Validit&#xe0;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Data fine Validit&#xe0;</from><to>Proietta Corso di studi</to><enabled>Y</enabled> </hop>
+  <hop> <from>Proietta Corso di studi</from><to>Tipo CDS</to><enabled>Y</enabled> </hop>
+  <hop> <from>TipoCds</from><to>Tipo CDS</to><enabled>Y</enabled> </hop>
+  <hop> <from>Genera KCds</from><to>Save Cds</to><enabled>Y</enabled> </hop>
+  <hop> <from>Tipo CDS</from><to>Genera KCds</to><enabled>Y</enabled> </hop>
+  <hop> <from>Read Spedizione 1</from><to>Codice Corso</to><enabled>Y</enabled> </hop>
+  <hop> <from>Decodifica Codice corso</from><to>Anno di validit&#xe0;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Codici corso</name>
@@ -661,7 +659,7 @@
     </step>
 
   <step>
-    <name>Genera KCDS</name>
+    <name>Genera KCds</name>
     <type>Sequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -683,7 +681,7 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1072</xloc>
+      <xloc>1024</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
@@ -749,7 +747,7 @@
     </filters>
     <fields>
       <field>
-        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+        <name>Codice_fiscale_evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -764,7 +762,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>AC</name>
+        <name>Evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -779,7 +777,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>24102012</name>
+        <name>Data_Evento</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -794,7 +792,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>&#x7b;9830A6B6_484A_415A_B986_23997C557675&#x7d;</name>
+        <name>Codice_Fiscale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -809,7 +807,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>F</name>
+        <name>Sesso</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -824,7 +822,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>58013</name>
+        <name>Comune_nascita</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -839,7 +837,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>7081992</name>
+        <name>Data_nascita</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -854,7 +852,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Stato_nascita</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -869,7 +867,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>24102012</name>
+        <name>Data_prima_immatricolazione</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -884,7 +882,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>2012</name>
+        <name>Anno_prima_immatricolazione</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -899,7 +897,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Cittadinanza</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -914,7 +912,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>IT</name>
+        <name>Stato_di_residenza</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -929,7 +927,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>58091</name>
+        <name>Comune_residenza</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -944,7 +942,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Tipo_ingresso</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -959,7 +957,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>137649</name>
+        <name>Chiave_corso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -974,7 +972,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>998</name>
+        <name>Esito_test_ingresso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -989,7 +987,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0,00</name>
+        <name>CFU_validi_per_il_corso</name>
         <type>Number</type>
         <format>&#x23;.&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1004,7 +1002,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0,00</name>
+        <name>Debiti_accertati</name>
         <type>Number</type>
         <format>&#x23;.&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1019,7 +1017,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>1</name>
+        <name>Anno_iscrizione_corso</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1034,7 +1032,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>9</name>
+        <name>Lavoratore</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1049,7 +1047,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>60</name>
+        <name>Impegno</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1064,7 +1062,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>9</name>
+        <name>Piano_studi_individuale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1079,7 +1077,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>A</name>
+        <name>Borsa_di_studio</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1094,7 +1092,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Esenzione</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1109,7 +1107,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>N</name>
+        <name>Esonero_totale_o_parziale</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1124,7 +1122,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0</name>
+        <name>Contributi_dovuti</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1139,7 +1137,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>0</name>
+        <name>Contributi_pagati</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1154,7 +1152,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>98</name>
+        <name>Interventi_di_supporto</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1169,7 +1167,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field29</name>
+        <name>Descrizione_interventi_supporto</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1184,7 +1182,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field30</name>
+        <name>Titolo_di_studio_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1199,7 +1197,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field31</name>
+        <name>Istituto_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1214,7 +1212,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field32</name>
+        <name>Anno_diploma</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
@@ -1229,7 +1227,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field33</name>
+        <name>Votazione_diploma</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1244,7 +1242,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field34</name>
+        <name>Nazione_diploma</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1259,7 +1257,22 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Field35</name>
+        <name>Vecchio_diploma</name>
+        <type>String</type>
+        <format/>
+        <currency>&#x20ac;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>0</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vecchio_Evento</name>
         <type>String</type>
         <format/>
         <currency>&#x20ac;</currency>
@@ -1301,7 +1314,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>96</xloc>
+      <xloc>32</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1346,7 +1359,7 @@
     </step>
 
   <step>
-    <name>Select values</name>
+    <name>Proietta Corso di studi</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1356,43 +1369,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>Chiave corso</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>CODICIONE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>NomeDipartimento</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>CodiceDipartimento</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>512</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>Chiave corso</name>
+    <fields>      <field>        <name>Chiave_corso</name>
         <rename>CodiceCorso</rename>
         <length>-2</length>
         <precision>-2</precision>
@@ -1426,31 +1403,7 @@
     </step>
 
   <step>
-    <name>Select values 2 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>137649</name>
-        <rename>Chiave corso</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>176</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Stream</name>
+    <name>Tipo CDS</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1486,7 +1439,7 @@
     </step>
 
   <step>
-    <name>Stream lookup</name>
+    <name>Codice Corso</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1503,7 +1456,7 @@
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>Chiave corso</name>
+        <name>Chiave_corso</name>
         <field>ID_CORSO</field>
       </key>
       <value>
@@ -1522,7 +1475,7 @@
     </step>
 
   <step>
-    <name>Stream lookup 2</name>
+    <name>Decodifica Codice corso</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1557,14 +1510,14 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>416</xloc>
+      <xloc>400</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Stream lookup 2 2</name>
+    <name>Anno di validit&#xe0;</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1581,7 +1534,7 @@
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>Chiave corso</name>
+        <name>Chiave_corso</name>
         <field>ID_CORSO</field>
       </key>
       <value>
@@ -1600,7 +1553,7 @@
     </step>
 
   <step>
-    <name>Stream lookup 2 2 2</name>
+    <name>Data fine Validit&#xe0;</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1617,7 +1570,7 @@
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>Chiave corso</name>
+        <name>Chiave_corso</name>
         <field>ID_CORSO</field>
       </key>
       <value>
@@ -1635,8 +1588,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>688</xloc>
-      <yloc>240</yloc>
+      <xloc>720</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
