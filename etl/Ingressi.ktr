@@ -1802,6 +1802,33 @@
     </step>
 
   <step>
+    <name>Unique rows &#x28;HashSet&#x29;</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <store_values>N</store_values>
+      <reject_duplicate_row>N</reject_duplicate_row>
+      <error_description/>
+    <fields>      <field>        <name>KStudente</name>
+        </field>      <field>        <name>KTempo</name>
+        </field>      <field>        <name>KAnnoAccademico</name>
+        </field>      <field>        <name>KCorsoDiStudi</name>
+        </field>      <field>        <name>KTipoImmatricolazione</name>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>192</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>tipoingresso  lookup</name>
     <type>StreamLookup</type>
     <description/>
@@ -1833,33 +1860,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>464</xloc>
       <yloc>32</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Unique rows &#x28;HashSet&#x29;</name>
-    <type>UniqueRowsByHashSet</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <store_values>N</store_values>
-      <reject_duplicate_row>N</reject_duplicate_row>
-      <error_description/>
-    <fields>      <field>        <name>KStudente</name>
-        </field>      <field>        <name>KTempo</name>
-        </field>      <field>        <name>KAnnoAccademico</name>
-        </field>      <field>        <name>KCorsoDiStudi</name>
-        </field>      <field>        <name>KTipoImmatricolazione</name>
-        </field>      </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>192</xloc>
-      <yloc>416</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

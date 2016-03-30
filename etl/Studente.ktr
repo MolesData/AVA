@@ -77,13 +77,13 @@
   </notepads>
   <connection>
     <name>postgresql</name>
-    <server>localhost</server>
+    <server>openspace.ddns.net</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>DWH</database>
+    <database>DWH_FINAL</database>
     <port>5432</port>
-    <username>Daniel</username>
-    <password>Encrypted </password>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
