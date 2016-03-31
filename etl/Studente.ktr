@@ -77,13 +77,13 @@
   </notepads>
   <connection>
     <name>postgresql</name>
-    <server>openspace.ddns.net</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>DWH_FINAL</database>
+    <database>DWH</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <username>Daniel</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -123,9 +123,10 @@
   <hop> <from>Preleva nazione diploma</from><to>Proietta Nazione Diploma</to><enabled>Y</enabled> </hop>
   <hop> <from>Proietta Nazione Diploma</from><to>Preleva istituto diploma</to><enabled>Y</enabled> </hop>
   <hop> <from>istituto diploma</from><to>Preleva istituto diploma</to><enabled>Y</enabled> </hop>
-  <hop> <from>Preleva istituto diploma</from><to>Proietta Istituto</to><enabled>Y</enabled> </hop>
   <hop> <from>Proietta Istituto</from><to>Genera KStudente</to><enabled>Y</enabled> </hop>
   <hop> <from>Genera KStudente</from><to>Save Studente</to><enabled>Y</enabled> </hop>
+  <hop> <from>Preleva istituto diploma</from><to>String operations</to><enabled>Y</enabled> </hop>
+  <hop> <from>String operations</from><to>Proietta Istituto</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Cittadinanza</name>
@@ -308,7 +309,7 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1440</xloc>
+      <xloc>1488</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
@@ -976,7 +977,7 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>Data_nascita</name>
-        <rename>DataNascita</rename>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>Anno_prima_immatricolazione</name>
@@ -1028,10 +1029,25 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+      <meta>        <name>Data_nascita</name>
+        <rename>DataNascita</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>ddMMyyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1376</xloc>
-      <yloc>144</yloc>
+      <xloc>1472</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2039,7 +2055,7 @@
       </field>
       <field>
         <name>Data_nascita</name>
-        <type>Integer</type>
+        <type>String</type>
         <format>&#x23;</format>
         <currency>&#x20ac;</currency>
         <decimal>,</decimal>
@@ -2786,7 +2802,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1568</xloc>
+      <xloc>1616</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
@@ -3249,11 +3265,6 @@
     <encoding>iso-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
       <name>&#x2f;Users&#x2f;Daniel&#x2f;Documents&#x2f;Magistrale&#x2f;BD2&#x2f;ans_anonimizzata&#x2f;CODICI_GENERALI&#x2f;CODICI_SCUOLE_SUPERIORI.dat</name>
       <filemask/>
       <exclude_filemask/>
@@ -3267,8 +3278,8 @@
     <fields>
       <field>
         <name>ID_SCUOLA</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency>&#x20ac;</currency>
         <decimal>,</decimal>
         <group>.</group>
@@ -3565,6 +3576,40 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1167</xloc>
       <yloc>381</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>Data_nascita</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>left</padding_type>
+        <pad_char>0</pad_char>
+        <pad_len>8</pad_len>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1376</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
