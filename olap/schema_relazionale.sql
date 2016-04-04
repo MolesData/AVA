@@ -5,7 +5,7 @@
 -- Dumped from database version 9.5.1
 -- Dumped by pg_dump version 9.5.1
 
--- Started on 2016-03-30 13:55:34 CEST
+-- Started on 2016-04-04 11:04:23 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -34,7 +34,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2442 (class 0 OID 0)
+-- TOC entry 2451 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -151,7 +151,7 @@ CREATE TABLE "Lauree" (
 ALTER TABLE "Lauree" OWNER TO postgres;
 
 --
--- TOC entry 192 (class 1259 OID 110861)
+-- TOC entry 192 (class 1259 OID 111230)
 -- Name: Studente; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -159,7 +159,6 @@ CREATE TABLE "Studente" (
     "KStudente" integer NOT NULL,
     "CodiceFiscale" text,
     "Sesso" text,
-    "DataNascita" integer,
     "Coorte" integer,
     "Cittadinanza" text,
     "StatoResidenza" text,
@@ -171,7 +170,8 @@ CREATE TABLE "Studente" (
     "VotoDiploma" text,
     "NazioneDiploma" text,
     "Provincia" text,
-    "Regione" text
+    "Regione" text,
+    "DataNascita" date
 );
 
 
@@ -233,30 +233,8 @@ CREATE TABLE "TipoUscita" (
 
 ALTER TABLE "TipoUscita" OWNER TO postgres;
 
-SET search_path = public, pg_catalog;
-
 --
--- TOC entry 193 (class 1259 OID 111067)
--- Name: Ingressi; Type: TABLE; Schema: public; Owner: Daniel
---
-
-CREATE TABLE "Ingressi" (
-    "KStudente" integer,
-    "KTempo" integer,
-    "KAnnoAccademico" integer,
-    "KCorsoDiStudi" integer,
-    "Immatricolato" integer,
-    "KTipoImmatricolazione" integer,
-    "EsitoIngresso" text
-);
-
-
-ALTER TABLE "Ingressi" OWNER TO "Daniel";
-
-SET search_path = "AVA", pg_catalog;
-
---
--- TOC entry 2300 (class 2606 OID 111010)
+-- TOC entry 2295 (class 2606 OID 111010)
 -- Name: AnnoAccademico_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -265,7 +243,7 @@ ALTER TABLE ONLY "AnnoAccademico"
 
 
 --
--- TOC entry 2304 (class 2606 OID 110758)
+-- TOC entry 2299 (class 2606 OID 110758)
 -- Name: CorsoDiStudi_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -274,7 +252,7 @@ ALTER TABLE ONLY "CorsoDiStudi"
 
 
 --
--- TOC entry 2302 (class 2606 OID 110760)
+-- TOC entry 2297 (class 2606 OID 110760)
 -- Name: Corso_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -283,7 +261,7 @@ ALTER TABLE ONLY "Corso"
 
 
 --
--- TOC entry 2306 (class 2606 OID 111019)
+-- TOC entry 2301 (class 2606 OID 111019)
 -- Name: Esami_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -292,7 +270,7 @@ ALTER TABLE ONLY "Esami"
 
 
 --
--- TOC entry 2308 (class 2606 OID 111119)
+-- TOC entry 2303 (class 2606 OID 111119)
 -- Name: Ingressi_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -301,7 +279,7 @@ ALTER TABLE ONLY "Ingressi"
 
 
 --
--- TOC entry 2310 (class 2606 OID 111121)
+-- TOC entry 2305 (class 2606 OID 111121)
 -- Name: Lauree_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -310,7 +288,7 @@ ALTER TABLE ONLY "Lauree"
 
 
 --
--- TOC entry 2320 (class 2606 OID 110868)
+-- TOC entry 2315 (class 2606 OID 111237)
 -- Name: Studente_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -319,7 +297,7 @@ ALTER TABLE ONLY "Studente"
 
 
 --
--- TOC entry 2312 (class 2606 OID 110766)
+-- TOC entry 2307 (class 2606 OID 110766)
 -- Name: Tempo_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -328,7 +306,7 @@ ALTER TABLE ONLY "Tempo"
 
 
 --
--- TOC entry 2314 (class 2606 OID 110768)
+-- TOC entry 2309 (class 2606 OID 110768)
 -- Name: TipoImmatricolazione_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -337,7 +315,7 @@ ALTER TABLE ONLY "TipoImmatricolazione"
 
 
 --
--- TOC entry 2316 (class 2606 OID 111123)
+-- TOC entry 2311 (class 2606 OID 111123)
 -- Name: TipoIscrizione_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -346,7 +324,7 @@ ALTER TABLE ONLY "TipoIscrizione"
 
 
 --
--- TOC entry 2318 (class 2606 OID 110770)
+-- TOC entry 2313 (class 2606 OID 110770)
 -- Name: TipoUscita_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -355,7 +333,133 @@ ALTER TABLE ONLY "TipoUscita"
 
 
 --
--- TOC entry 2441 (class 0 OID 0)
+-- TOC entry 2318 (class 2606 OID 111327)
+-- Name: Esami_KAnnoAccademico_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Esami"
+    ADD CONSTRAINT "Esami_KAnnoAccademico_fkey" FOREIGN KEY ("KAnnoAccademico") REFERENCES "AnnoAccademico"("KAnnoAccademico");
+
+
+--
+-- TOC entry 2317 (class 2606 OID 111322)
+-- Name: Esami_KCorsoDiStudi_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Esami"
+    ADD CONSTRAINT "Esami_KCorsoDiStudi_fkey" FOREIGN KEY ("KCorsoDiStudi") REFERENCES "CorsoDiStudi"("KCorsoDiStudi");
+
+
+--
+-- TOC entry 2316 (class 2606 OID 111317)
+-- Name: Esami_KCorso_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Esami"
+    ADD CONSTRAINT "Esami_KCorso_fkey" FOREIGN KEY ("KCorso") REFERENCES "Corso"("KCorso");
+
+
+--
+-- TOC entry 2319 (class 2606 OID 111332)
+-- Name: Esami_KStudente_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Esami"
+    ADD CONSTRAINT "Esami_KStudente_fkey" FOREIGN KEY ("KStudente") REFERENCES "Studente"("KStudente");
+
+
+--
+-- TOC entry 2320 (class 2606 OID 111337)
+-- Name: Esami_KTempo_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Esami"
+    ADD CONSTRAINT "Esami_KTempo_fkey" FOREIGN KEY ("KTempo") REFERENCES "Tempo"("KTempo");
+
+
+--
+-- TOC entry 2325 (class 2606 OID 111366)
+-- Name: Ingressi_KAnnoAccademico_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Ingressi"
+    ADD CONSTRAINT "Ingressi_KAnnoAccademico_fkey" FOREIGN KEY ("KAnnoAccademico") REFERENCES "AnnoAccademico"("KAnnoAccademico");
+
+
+--
+-- TOC entry 2322 (class 2606 OID 111351)
+-- Name: Ingressi_KCorsoDiStudi_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Ingressi"
+    ADD CONSTRAINT "Ingressi_KCorsoDiStudi_fkey" FOREIGN KEY ("KCorsoDiStudi") REFERENCES "CorsoDiStudi"("KCorsoDiStudi");
+
+
+--
+-- TOC entry 2321 (class 2606 OID 111342)
+-- Name: Ingressi_KStudente_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Ingressi"
+    ADD CONSTRAINT "Ingressi_KStudente_fkey" FOREIGN KEY ("KStudente") REFERENCES "Studente"("KStudente");
+
+
+--
+-- TOC entry 2323 (class 2606 OID 111356)
+-- Name: Ingressi_KTempo_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Ingressi"
+    ADD CONSTRAINT "Ingressi_KTempo_fkey" FOREIGN KEY ("KTempo") REFERENCES "Tempo"("KTempo");
+
+
+--
+-- TOC entry 2324 (class 2606 OID 111361)
+-- Name: Ingressi_KTipoImmatricolazione_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Ingressi"
+    ADD CONSTRAINT "Ingressi_KTipoImmatricolazione_fkey" FOREIGN KEY ("KTipoImmatricolazione") REFERENCES "TipoImmatricolazione"("KTipoImmatricolazione");
+
+
+--
+-- TOC entry 2327 (class 2606 OID 111435)
+-- Name: Lauree_KAnnoAccademico_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Lauree"
+    ADD CONSTRAINT "Lauree_KAnnoAccademico_fkey" FOREIGN KEY ("KAnnoAccademico") REFERENCES "AnnoAccademico"("KAnnoAccademico");
+
+
+--
+-- TOC entry 2329 (class 2606 OID 111445)
+-- Name: Lauree_KCorsoDiStudi_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Lauree"
+    ADD CONSTRAINT "Lauree_KCorsoDiStudi_fkey" FOREIGN KEY ("KCorsoDiStudi") REFERENCES "CorsoDiStudi"("KCorsoDiStudi");
+
+
+--
+-- TOC entry 2326 (class 2606 OID 111430)
+-- Name: Lauree_KStudente_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Lauree"
+    ADD CONSTRAINT "Lauree_KStudente_fkey" FOREIGN KEY ("KStudente") REFERENCES "Studente"("KStudente");
+
+
+--
+-- TOC entry 2328 (class 2606 OID 111440)
+-- Name: Lauree_KTempo_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
+--
+
+ALTER TABLE ONLY "Lauree"
+    ADD CONSTRAINT "Lauree_KTempo_fkey" FOREIGN KEY ("KTempo") REFERENCES "Tempo"("KTempo");
+
+
+--
+-- TOC entry 2450 (class 0 OID 0)
 -- Dependencies: 8
 -- Name: public; Type: ACL; Schema: -; Owner: Daniel
 --
@@ -367,7 +471,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2016-03-30 13:55:34 CEST
+-- Completed on 2016-04-04 11:04:23 CEST
 
 --
 -- PostgreSQL database dump complete
