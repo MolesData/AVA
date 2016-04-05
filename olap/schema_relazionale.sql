@@ -5,7 +5,7 @@
 -- Dumped from database version 9.5.1
 -- Dumped by pg_dump version 9.5.1
 
--- Started on 2016-04-04 11:04:23 CEST
+-- Started on 2016-04-05 09:25:03 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -24,23 +24,6 @@ CREATE SCHEMA "AVA";
 
 
 ALTER SCHEMA "AVA" OWNER TO postgres;
-
---
--- TOC entry 1 (class 3079 OID 12623)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- TOC entry 2451 (class 0 OID 0)
--- Dependencies: 1
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
 
 SET search_path = "AVA", pg_catalog;
 
@@ -80,16 +63,16 @@ CREATE TABLE "Corso" (
 ALTER TABLE "Corso" OWNER TO postgres;
 
 --
--- TOC entry 184 (class 1259 OID 110718)
+-- TOC entry 192 (class 1259 OID 119647)
 -- Name: CorsoDiStudi; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
 CREATE TABLE "CorsoDiStudi" (
     "CodiceCorso" bigint,
     "NomeDipartimento" text,
-    "CodiceDipartimento" double precision,
-    "DataInizioValidità" bigint,
-    "DataFineValidità" bigint,
+    "CodiceDipartimento" integer,
+    "DataInizioValidità" integer,
+    "DataFineValidità" integer,
     "NomeCorso" text,
     "TipoCds" text,
     "KCorsoDiStudi" double precision NOT NULL
@@ -99,7 +82,7 @@ CREATE TABLE "CorsoDiStudi" (
 ALTER TABLE "CorsoDiStudi" OWNER TO postgres;
 
 --
--- TOC entry 185 (class 1259 OID 110724)
+-- TOC entry 184 (class 1259 OID 110724)
 -- Name: Esami; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -117,7 +100,7 @@ CREATE TABLE "Esami" (
 ALTER TABLE "Esami" OWNER TO postgres;
 
 --
--- TOC entry 186 (class 1259 OID 110727)
+-- TOC entry 185 (class 1259 OID 110727)
 -- Name: Ingressi; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -135,7 +118,7 @@ CREATE TABLE "Ingressi" (
 ALTER TABLE "Ingressi" OWNER TO postgres;
 
 --
--- TOC entry 187 (class 1259 OID 110730)
+-- TOC entry 186 (class 1259 OID 110730)
 -- Name: Lauree; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -151,7 +134,7 @@ CREATE TABLE "Lauree" (
 ALTER TABLE "Lauree" OWNER TO postgres;
 
 --
--- TOC entry 192 (class 1259 OID 111230)
+-- TOC entry 191 (class 1259 OID 111230)
 -- Name: Studente; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -178,7 +161,7 @@ CREATE TABLE "Studente" (
 ALTER TABLE "Studente" OWNER TO postgres;
 
 --
--- TOC entry 188 (class 1259 OID 110739)
+-- TOC entry 187 (class 1259 OID 110739)
 -- Name: Tempo; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -193,7 +176,7 @@ CREATE TABLE "Tempo" (
 ALTER TABLE "Tempo" OWNER TO postgres;
 
 --
--- TOC entry 189 (class 1259 OID 110742)
+-- TOC entry 188 (class 1259 OID 110742)
 -- Name: TipoImmatricolazione; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -206,7 +189,7 @@ CREATE TABLE "TipoImmatricolazione" (
 ALTER TABLE "TipoImmatricolazione" OWNER TO postgres;
 
 --
--- TOC entry 190 (class 1259 OID 110748)
+-- TOC entry 189 (class 1259 OID 110748)
 -- Name: TipoIscrizione; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -221,7 +204,7 @@ CREATE TABLE "TipoIscrizione" (
 ALTER TABLE "TipoIscrizione" OWNER TO postgres;
 
 --
--- TOC entry 191 (class 1259 OID 110751)
+-- TOC entry 190 (class 1259 OID 110751)
 -- Name: TipoUscita; Type: TABLE; Schema: AVA; Owner: postgres
 --
 
@@ -243,7 +226,7 @@ ALTER TABLE ONLY "AnnoAccademico"
 
 
 --
--- TOC entry 2299 (class 2606 OID 110758)
+-- TOC entry 2315 (class 2606 OID 119654)
 -- Name: CorsoDiStudi_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -261,7 +244,7 @@ ALTER TABLE ONLY "Corso"
 
 
 --
--- TOC entry 2301 (class 2606 OID 111019)
+-- TOC entry 2299 (class 2606 OID 111019)
 -- Name: Esami_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -270,7 +253,7 @@ ALTER TABLE ONLY "Esami"
 
 
 --
--- TOC entry 2303 (class 2606 OID 111119)
+-- TOC entry 2301 (class 2606 OID 111119)
 -- Name: Ingressi_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -279,7 +262,7 @@ ALTER TABLE ONLY "Ingressi"
 
 
 --
--- TOC entry 2305 (class 2606 OID 111121)
+-- TOC entry 2303 (class 2606 OID 111121)
 -- Name: Lauree_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -288,7 +271,7 @@ ALTER TABLE ONLY "Lauree"
 
 
 --
--- TOC entry 2315 (class 2606 OID 111237)
+-- TOC entry 2313 (class 2606 OID 111237)
 -- Name: Studente_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -297,7 +280,7 @@ ALTER TABLE ONLY "Studente"
 
 
 --
--- TOC entry 2307 (class 2606 OID 110766)
+-- TOC entry 2305 (class 2606 OID 110766)
 -- Name: Tempo_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -306,7 +289,7 @@ ALTER TABLE ONLY "Tempo"
 
 
 --
--- TOC entry 2309 (class 2606 OID 110768)
+-- TOC entry 2307 (class 2606 OID 110768)
 -- Name: TipoImmatricolazione_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -315,7 +298,7 @@ ALTER TABLE ONLY "TipoImmatricolazione"
 
 
 --
--- TOC entry 2311 (class 2606 OID 111123)
+-- TOC entry 2309 (class 2606 OID 111123)
 -- Name: TipoIscrizione_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -324,7 +307,7 @@ ALTER TABLE ONLY "TipoIscrizione"
 
 
 --
--- TOC entry 2313 (class 2606 OID 110770)
+-- TOC entry 2311 (class 2606 OID 110770)
 -- Name: TipoUscita_pkey; Type: CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -333,21 +316,12 @@ ALTER TABLE ONLY "TipoUscita"
 
 
 --
--- TOC entry 2318 (class 2606 OID 111327)
+-- TOC entry 2317 (class 2606 OID 111327)
 -- Name: Esami_KAnnoAccademico_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
 ALTER TABLE ONLY "Esami"
     ADD CONSTRAINT "Esami_KAnnoAccademico_fkey" FOREIGN KEY ("KAnnoAccademico") REFERENCES "AnnoAccademico"("KAnnoAccademico");
-
-
---
--- TOC entry 2317 (class 2606 OID 111322)
--- Name: Esami_KCorsoDiStudi_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
---
-
-ALTER TABLE ONLY "Esami"
-    ADD CONSTRAINT "Esami_KCorsoDiStudi_fkey" FOREIGN KEY ("KCorsoDiStudi") REFERENCES "CorsoDiStudi"("KCorsoDiStudi");
 
 
 --
@@ -360,7 +334,7 @@ ALTER TABLE ONLY "Esami"
 
 
 --
--- TOC entry 2319 (class 2606 OID 111332)
+-- TOC entry 2318 (class 2606 OID 111332)
 -- Name: Esami_KStudente_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -369,7 +343,7 @@ ALTER TABLE ONLY "Esami"
 
 
 --
--- TOC entry 2320 (class 2606 OID 111337)
+-- TOC entry 2319 (class 2606 OID 111337)
 -- Name: Esami_KTempo_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -378,7 +352,7 @@ ALTER TABLE ONLY "Esami"
 
 
 --
--- TOC entry 2325 (class 2606 OID 111366)
+-- TOC entry 2323 (class 2606 OID 111366)
 -- Name: Ingressi_KAnnoAccademico_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -387,16 +361,7 @@ ALTER TABLE ONLY "Ingressi"
 
 
 --
--- TOC entry 2322 (class 2606 OID 111351)
--- Name: Ingressi_KCorsoDiStudi_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
---
-
-ALTER TABLE ONLY "Ingressi"
-    ADD CONSTRAINT "Ingressi_KCorsoDiStudi_fkey" FOREIGN KEY ("KCorsoDiStudi") REFERENCES "CorsoDiStudi"("KCorsoDiStudi");
-
-
---
--- TOC entry 2321 (class 2606 OID 111342)
+-- TOC entry 2320 (class 2606 OID 111342)
 -- Name: Ingressi_KStudente_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -405,7 +370,7 @@ ALTER TABLE ONLY "Ingressi"
 
 
 --
--- TOC entry 2323 (class 2606 OID 111356)
+-- TOC entry 2321 (class 2606 OID 111356)
 -- Name: Ingressi_KTempo_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -414,7 +379,7 @@ ALTER TABLE ONLY "Ingressi"
 
 
 --
--- TOC entry 2324 (class 2606 OID 111361)
+-- TOC entry 2322 (class 2606 OID 111361)
 -- Name: Ingressi_KTipoImmatricolazione_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -423,7 +388,7 @@ ALTER TABLE ONLY "Ingressi"
 
 
 --
--- TOC entry 2327 (class 2606 OID 111435)
+-- TOC entry 2325 (class 2606 OID 111435)
 -- Name: Lauree_KAnnoAccademico_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -432,16 +397,7 @@ ALTER TABLE ONLY "Lauree"
 
 
 --
--- TOC entry 2329 (class 2606 OID 111445)
--- Name: Lauree_KCorsoDiStudi_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
---
-
-ALTER TABLE ONLY "Lauree"
-    ADD CONSTRAINT "Lauree_KCorsoDiStudi_fkey" FOREIGN KEY ("KCorsoDiStudi") REFERENCES "CorsoDiStudi"("KCorsoDiStudi");
-
-
---
--- TOC entry 2326 (class 2606 OID 111430)
+-- TOC entry 2324 (class 2606 OID 111430)
 -- Name: Lauree_KStudente_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -450,7 +406,7 @@ ALTER TABLE ONLY "Lauree"
 
 
 --
--- TOC entry 2328 (class 2606 OID 111440)
+-- TOC entry 2326 (class 2606 OID 111440)
 -- Name: Lauree_KTempo_fkey; Type: FK CONSTRAINT; Schema: AVA; Owner: postgres
 --
 
@@ -458,20 +414,7 @@ ALTER TABLE ONLY "Lauree"
     ADD CONSTRAINT "Lauree_KTempo_fkey" FOREIGN KEY ("KTempo") REFERENCES "Tempo"("KTempo");
 
 
---
--- TOC entry 2450 (class 0 OID 0)
--- Dependencies: 8
--- Name: public; Type: ACL; Schema: -; Owner: Daniel
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM "Daniel";
-GRANT ALL ON SCHEMA public TO "Daniel";
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
-
--- Completed on 2016-04-04 11:04:23 CEST
+-- Completed on 2016-04-05 09:25:04 CEST
 
 --
 -- PostgreSQL database dump complete
